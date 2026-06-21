@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+    <title>球天下体育 · 再次光临 · 持续关注</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f2f7f9;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', Helvetica, sans-serif;
+            line-height: 1.6;
+            color: #1d2b36;
+            padding: 1.5rem 1rem 3rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .page {
+            max-width: 1180px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* ---------- Hero ---------- */
+        .hero {
+            background: linear-gradient(135deg, #0b4852 0%, #1b6b72 70%, #2d8b8f 100%);
+            border-radius: 2.2rem;
+            padding: 3rem 2rem 2.8rem;
+            color: #ffffff;
+            box-shadow: 0 12px 28px rgba(7, 55, 60, 0.18);
+            margin-bottom: 2.8rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 260px;
+            height: 260px;
+            background: rgba(230, 255, 245, 0.06);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            margin-bottom: 0.4rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero .subhead {
+            font-size: 1.15rem;
+            opacity: 0.9;
+            max-width: 460px;
+            margin-top: 0.5rem;
+            line-height: 1.5;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero .mark {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.13);
+            backdrop-filter: blur(3px);
+            border-radius: 40px;
+            padding: 0.4rem 1.1rem;
+            margin-top: 1.3rem;
+            font-size: 0.9rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #e3f5f7;
+        }
+
+        /* ---------- 网格卡片通用 ---------- */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin: 2.2rem 0;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 1.8rem;
+            padding: 1.8rem 1.5rem 1.6rem;
+            box-shadow: 0 4px 14px rgba(0, 40, 45, 0.05);
+            border: 1px solid #d9e7ea;
+            transition: box-shadow 0.2s, translate 0.15s;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 20px rgba(11, 72, 82, 0.12);
+            translate: 0 -3px;
+        }
+
+        .card h3 {
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: #0b4852;
+            margin-bottom: 0.7rem;
+            border-left: 5px solid #2d8b8f;
+            padding-left: 0.8rem;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #2c3f48;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #def1f3;
+            color: #0b4852;
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 0.25rem 0.8rem;
+            border-radius: 30px;
+            margin-bottom: 0.8rem;
+        }
+
+        /* ---------- 说明区 ---------- */
+        .explain-section {
+            background: #ffffff;
+            border-radius: 2rem;
+            padding: 2.2rem 2rem;
+            margin: 2rem 0 2.5rem;
+            border: 1px solid #cde4e8;
+            box-shadow: 0 2px 12px rgba(0, 40, 45, 0.03);
+        }
+
+        .explain-section h2 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #0b4852;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .explain-section h2 span {
+            background: #0b4852;
+            color: #f5fbfc;
+            border-radius: 40px;
+            padding: 0 0.8rem;
+            font-size: 0.85rem;
+            line-height: 1.8;
+            margin-left: 0.6rem;
+        }
+
+        .explain-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .explain-section li {
+            padding: 0.55rem 0 0.55rem 1.6rem;
+            position: relative;
+            font-size: 0.98rem;
+            border-bottom: 1px solid #e9f2f4;
+            color: #1f363e;
+        }
+
+        .explain-section li:last-child {
+            border-bottom: none;
+        }
+
+        .explain-section li::before {
+            content: "▹";
+            position: absolute;
+            left: 0.1rem;
+            color: #2d8b8f;
+            font-weight: bold;
+        }
+
+        .explain-note {
+            background: #eaf5f7;
+            border-radius: 1rem;
+            padding: 1.1rem 1.5rem;
+            margin-top: 1.6rem;
+            font-size: 0.9rem;
+            border-left: 5px solid #1b6b72;
+            color: #173b40;
+        }
+
+        /* ---------- FAQ 摘要 ---------- */
+        .faq-mini {
+            background: #ffffff;
+            border-radius: 2rem;
+            padding: 1.8rem 2rem 2rem;
+            margin: 2.5rem 0 2rem;
+            border: 1px solid #cde4e8;
+        }
+
+        .faq-mini h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #0b4852;
+            margin-bottom: 0.8rem;
+        }
+
+        .faq-item {
+            padding: 0.9rem 0;
+            border-bottom: 1px solid #e0edf0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-weight: 600;
+            color: #134a54;
+            font-size: 1.02rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .faq-a {
+            color: #2c4b55;
+            font-size: 0.95rem;
+            padding-left: 1.2rem;
+        }
+
+        /* ---------- 底部链接区 ---------- */
+        .footer-links {
+            margin-top: 3rem;
+            padding: 1.8rem 0 0.6rem;
+            border-top: 1px solid #c2dadf;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .footer-links .footnote {
+            font-size: 0.9rem;
+            color: #1d4952;
+        }
+
+        .footer-links a {
+            color: #0b4852;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s;
+        }
+
+        .footer-links a:hover {
+            border-bottom: 1px solid #2d8b8f;
+        }
+
+        .footer-links .brand-link {
+            font-size: 1.05rem;
+            background: #0b4852;
+            color: #f0fbfd;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            border-bottom: none;
+            display: inline-block;
+            font-weight: 500;
+            letter-spacing: 0.01em;
+        }
+
+        .footer-links .brand-link:hover {
+            background: #195f68;
+            color: white;
+            border-bottom: none;
+        }
+
+        /* ---------- 响应式 ---------- */
+        @media (max-width: 640px) {
+            body {
+                padding: 0.8rem 0.8rem 2rem;
+            }
+            .hero {
+                padding: 2rem 1.2rem 2rem;
+                border-radius: 1.6rem;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .hero .subhead {
+                font-size: 1rem;
+            }
+            .card-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .card {
+                padding: 1.4rem 1.2rem;
+                border-radius: 1.4rem;
+            }
+            .explain-section,
+            .faq-mini {
+                padding: 1.5rem 1.2rem;
+                border-radius: 1.4rem;
+            }
+            .footer-links {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.6rem;
+            }
+        }
+
+        @media (min-width: 641px) and (max-width: 860px) {
+            .hero h1 {
+                font-size: 2.1rem;
+            }
+            .card-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <!-- Hero -->
+    <section class="hero">
+        <h1>球天下体育</h1>
+        <div class="subhead">再次来到，依旧熟悉。<br>收藏这份陪伴，让体育资讯随时可循。</div>
+        <div class="mark">✦ 持续关注 · 资讯聚合</div>
+    </section>
+
+    <!-- 优势区：网格卡片 -->
+    <div class="card-grid">
+        <div class="card">
+            <span class="tag">再次访问</span>
+            <h3>快速回位</h3>
+            <p>页面结构清晰，常用板块一眼可寻。无需重新适应，每次打开都是熟悉节奏。</p>
+        </div>
+        <div class="card">
+            <span class="tag">收藏友好</span>
+            <h3>随手收藏</h3>
+            <p>浏览器加入书签，或直接保存到主屏幕。想了解赛事动态，随时点开就行。</p>
+        </div>
+        <div class="card">
+            <span class="tag">持续关注</span>
+            <h3>内容常新</h3>
+            <p>体育资讯、赛事观察保持更新节奏，适合长期跟进。不需要频繁跳转其他站点。</p>
+        </div>
+        <div class="card">
+            <span class="tag">资讯聚合</span>
+            <h3>一站式阅览</h3>
+            <p>从焦点赛事到深度内容，聚合在同一个平台，方便按兴趣翻阅。</p>
+        </div>
+    </div>
+
+    <!-- 说明区：场景化介绍 -->
+    <section class="explain-section">
+        <h2>为什么值得再次回来 <span>场景</span></h2>
+        <ul>
+            <li><strong>日常关注</strong> — 打开收藏夹里的<a href="https://portal-qtcsports.com" style="color:#0b4852;text-decoration:underline;text-underline-offset:3px;">球天下体育</a>，看看今日有哪些焦点比赛或赛后分析，已经成为习惯。</li>
+            <li><strong>赛事间隙</strong> — 等直播或中场休息时，快速浏览最新战报、积分变动，不用重新搜索。</li>
+            <li><strong>专题回顾</strong> — 联赛周期或转会窗口，按栏目翻看往期内容，信息组织清楚，省去自己整理。</li>
+            <li><strong>轻量阅读</strong> — 页面排版干净，没有过度干扰，适合安静地看几篇短讯或观察文章。</li>
+        </ul>
+        <div class="explain-note">
+            📌 把链接保存在常用位置，就是在身边放了一个体育信息入口。不必每次从零开始。
+        </div>
+    </section>
+
+    <!-- FAQ 摘要 -->
+    <section class="faq-mini">
+        <h2>常见问题 · 简短摘要</h2>
+        <div class="faq-item">
+            <div class="faq-q">「球天下体育」主要面向哪些用户？</div>
+            <div class="faq-a">关注体育赛事、队伍动态、联赛资讯的爱好者，以及想稳定获取体育内容而不频繁切换平台的人。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">需要注册或登录才能浏览吗？</div>
+            <div class="faq-a">大多数内容可以直接阅读，具体以页面实际提示为准。平台降低了访问门槛，方便快速浏览。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">资讯更新频率怎么样？</div>
+            <div class="faq-a">保持日常更新，重点赛事前后内容密度较高。长期关注会逐步感受到内容节奏。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">为什么推荐收藏 / 再次访问？</div>
+            <div class="faq-a">体育资讯具有时效性，收藏一个稳定的信息源，可以减少每次重新搜索的时间，也更容易形成阅读惯性。</div>
+        </div>
+    </section>
+
+    <!-- 底部链接 -->
+    <footer class="footer-links">
+        <div class="footnote">
+            <a href="https://portal-qtcsports.com" class="brand-link">球天下体育</a> · 收藏 · 持续关注
+        </div>
+        <div class="footnote">
+            <span style="opacity:0.7;">© 资讯聚合 · 认真整理</span>
+        </div>
+    </footer>
+</div>
+</body>
+</html>
